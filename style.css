@@ -41,9 +41,9 @@
   90%  { transform: translateY(30px); }
   /* 90% -> 95%: 'catch up' to building ascent */
   95%  { transform: translateY(0px); }
-  /* 95% -> 97%: bounce down */
+  /* 95% -> 97%: bounce up */
   97%  { transform: translateY(-8px); }
-  /* 97% -> 99%: bounce up */
+  /* 97% -> 99%: bounce down */
   99%  { transform: translateY(0px); }
   /* 99% -> 100%: stationary */
   100% { transform: translateY(0px);}
@@ -54,9 +54,9 @@
   40%  { transform: translateY(30px); }
   /* 40% -> 45%: 'catch up' to building ascent */
   45%  { transform: translateY(0px); }
-  /* 45% -> 47%: bounce down */
+  /* 45% -> 47%: bounce up */
   47%  { transform: translateY(-8px); }
-  /* 47% -> 49%: bounce up */
+  /* 47% -> 49%: bounce down */
   49%  { transform: translateY(0px); }
   /* 49% -> 100%: stationary */
   100% { transform: translateY(0px); }
