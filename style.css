@@ -1,0 +1,185 @@
+/* Variables */
+:root {
+  --blue:      #0dadbf;
+  --dark-blue: #0d45bf;
+  --off-white: #faf6d9;
+  --pink:      #f5bfc6;
+  --reddish:   #ff8573;
+}
+/* Keyframes */
+@keyframes cloud-animate {
+  from { transform: translateX(0); }
+  to { transform: translateX(650px); }
+}
+@keyframes building-animate {
+  0%   { transform: translateY(0px); animation-timing-function: linear; }
+  /* 0% -> 50%: descend offscreen */
+  50%  { transform: translateY(350px); }
+  /* 50% -> 85%: stay below screen */
+  85%  { transform: translateY(350px); animation-timing-function: ease-in; }
+  /* 85% -> 95%: shoot back up onscreen */
+  95%  { transform: translateY(0px); }
+  /* 95% -> 100%: stay put onscreen */
+  100% { transform: translateY(0px); }
+}
+@keyframes offscreen-building-animate {
+  0%   { transform: translateY(350px); }
+  /* 0% -> 35%: stay below screen */
+  35%  { transform: translateY(350px); animation-timing-function: ease-in; }
+  /* 35% -> 45%: shoot back up onscreen */
+  45%  { transform: translateY(0px); }
+  /* 45% -> 50%: stay put onscreen */
+  50%  { transform: translateY(0px); animation-timing-function: linear; }
+  /* 50% -> 100%: descend offscreen */
+  100% { transform: translateY(350px); }
+}
+@keyframes windows-animate {
+  0%   { transform: translateY(0px); }
+  /* 0% -> 80%: stationary during descent */
+  80%  { transform: translateY(0px); }
+  /* 80% -> 85%: move down while offscreen */
+  90%  { transform: translateY(30px); }
+  /* 90% -> 95%: 'catch up' to building ascent */
+  95%  { transform: translateY(0px); }
+  /* 95% -> 97%: bounce down */
+  97%  { transform: translateY(-8px); }
+  /* 97% -> 99%: bounce up */
+  99%  { transform: translateY(0px); }
+  /* 99% -> 100%: stationary */
+  100% { transform: translateY(0px);}
+}
+@keyframes offscreen-windows-animate {
+  0%   { transform: translateY(30px); }
+  /* 0% -> 40%: stationary in downed position */
+  40%  { transform: translateY(30px); }
+  /* 40% -> 45%: 'catch up' to building ascent */
+  45%  { transform: translateY(0px); }
+  /* 45% -> 47%: bounce down */
+  47%  { transform: translateY(-8px); }
+  /* 47% -> 49%: bounce up */
+  49%  { transform: translateY(0px); }
+  /* 49% -> 100%: stationary */
+  100% { transform: translateY(0px); }
+}
+@keyframes bird-swoop { 
+  0%  { top: 40px; right: -35px; animation-timing-function: ease-in; }
+  /* 0% -> 20%: stay offscreen */
+  20%  { top: 40px; right: -35px; }
+  /* 20% -> 60%: swoop with wing flaps */
+  60%  { top: 100px; right: 215px; animation-timing-function: linear; }
+  /* 60% -> 100%: descend with building */
+  100% { top: 381px; right: 215px; }
+}
+@keyframes bird-flap { 
+  0%   { transform: rotate(-45deg); border-top: 20px transparent solid; border-right: 20px transparent solid; border-bottom: 10px black solid; border-left: 10px black solid; }
+  25%  { transform: rotate(-45deg); border-top: 20px transparent solid; border-right: 20px transparent solid; border-bottom: 10px black solid; border-left: 10px black solid; }
+  50%  { transform: rotate(-45deg); border-top: 15px transparent solid; border-right: 15px transparent solid; border-bottom: 15px black solid; border-left: 15px black solid; }
+  75%  { transform: rotate(135deg) translateY(-20px) translateX(20px); border-top: 20px transparent solid; border-right: 20px transparent solid; border-bottom: 10px black solid; border-left: 10px black solid; }
+  100% { transform: rotate(-45deg); border-top: 20px transparent solid; border-right: 20px transparent solid; border-bottom: 10px black solid; border-left: 10px black solid; }
+}
+
+/* General */
+body { background-color: black; }
+div { filter: blur(0.7px); }
+.blue-square { display: flex; background-color: var(--blue); height: 440px; width: 600px; position: relative; margin: 50px auto; }
+.pink-square { position: relative; background-color: var(--pink); width: 350px; height: 350px; margin: auto; overflow: hidden; }
+/* cloud */
+.cloud-1.animate, .cloud-2.animate, .cloud-3.animate { animation: cloud-animate 25s linear infinite; }
+.cloud-1 { position: absolute; background-color: white; width: 100px; height: 60px; left: -130px; top:45px; }
+.cloud-2, .cloud-3 { background-color: white; position: absolute; width:60px; height: 60px; border-radius: 50%; top: 45px; }
+.cloud-2 { left: -160px; }
+.cloud-3 { left: -60px; }
+.cloud-1::before, .cloud-1::after { content: ''; background-color: white; position: absolute; width: 70px; height: 70px; border-radius: 50%; }
+.cloud-1::before { top: -40px; }
+.cloud-1::after { top: -20px; left: 35px; }
+/* tower 1 */
+.tower-1-roof.animate, .tower-1-body.animate { animation: building-animate 10s linear 0s infinite normal; }
+.tower-1-body.animate::after, .tower-1-body.animate::before { animation: windows-animate 10s ease 0s infinite normal; }
+.tower-1-roof { background-color: var(--dark-blue); width: 115px; height: 115px; border-radius: 50%; position: absolute; top: 70px; right: 0; }
+.tower-1-body { background-color: var(--off-white); position: absolute; width: 115px; height: 230px; right: 0; bottom: 0; }
+.tower-1-body::before, .tower-1-body::after { content: ''; position: absolute; height: 35px; width: 15px; background-color: black; border-radius: 10%; top: 30px; }
+.tower-1-body::before { left: 30px; }
+.tower-1-body::after { right: 30px; }
+/* round house 1 */
+.round-house-1-roof, .round-house-1-body { transform: translateY(350px); }
+.round-house-1-roof.animate, .round-house-1-body.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
+.round-house-1-roof { background-color: black; width: 80px; height: 150px; ; position: absolute; top: 30px; right: 0; }
+.round-house-1-body { background-color: var(--reddish); position: absolute; width: 155px; height: 320px; right: 0; bottom: 0; border-radius: 50% 50% 0 0; }
+/* tower 2 */
+.tower-2-roof, .tower-2-body, .tower-2-cross-vt, .tower-2-cross-hz { transform: translateY(350px); }
+.tower-2-roof.animate, .tower-2-body.animate, .tower-2-cross-vt.animate, .tower-2-cross-hz.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
+.tower-2-body.animate::after, .tower-2-body.animate::before { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.tower-2-roof { background-color: var(--dark-blue); width: 150px; height: 100px; border-radius: 50%; position: absolute; top: 100px; right: 35px; }
+.tower-2-cross-vt, .tower-2-cross-hz { background-color: var(--off-white); position: absolute; }
+.tower-2-cross-vt { height: 45px; width: 10px; top: 55px; right: 105px;}
+.tower-2-cross-hz { height: 10px; width: 30px; top: 65px; right: 95px; }
+.tower-2-body { background-color: var(--off-white); position: absolute; width: 150px; height: 200px; right: 35px; bottom: 0; }
+.tower-2-body::before, .tower-2-body::after { content: ''; position: absolute; height: 35px; width: 15px; background-color: black; border-radius: 30% 30% 10% 10%; top: 30px; }
+.tower-2-body::before { left: 40px; }
+.tower-2-body::after { right: 50px; }
+/* fat house 1 */
+.fat-house-1-roof.animate, .fat-house-1-roof-slope.animate, .fat-house-1-body.animate { animation: building-animate 10s linear 0s infinite normal; }
+.fat-house-1-body.animate::after, .fat-house-1-body.animate::before { animation: windows-animate 10s ease 0s infinite normal; }
+.fat-house-1-roof { background-color: var(--dark-blue); width: 107px; height: 50px; position: absolute; top: 70px; left: 0; }
+.fat-house-1-roof-slope { border-left: 25px var(--dark-blue) solid; border-bottom: 25px var(--dark-blue) solid; border-right: 25px transparent solid; border-top: 25px transparent solid;  position: absolute;  top: 70px;  left: 105px; }
+.fat-house-1-body { background-color: var(--off-white); position: absolute; width: 155px; height: 230px; left: 0; bottom: 0; }
+.fat-house-1-body::before, .fat-house-1-body::after { content: ''; position: absolute; height: 20px; width: 15px; border-radius: 30%; background-color: black; top: 30px; }
+.fat-house-1-body::before { right: 25px; }
+.fat-house-1-body::after { right: 55px; }
+/* triangle house */
+.triangle-house-roof, .triangle-house-roof-slope, .triangle-house-side-face, .triangle-house-front-face { transform: translateY(350px); } 
+.triangle-house-roof.animate, .triangle-house-roof-slope.animate, .triangle-house-front-face.animate, .triangle-house-side-face.animate, .triangle-house-body.animate::before { animation: offscreen-building-animate 10s linear 0s infinite normal; }
+.triangle-house-front-face.animate::after { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.triangle-house-roof { background-color: var(--reddish); width: 170px; height: 50px; position: absolute; top: 30px; right: 39px; }
+.triangle-house-roof-slope { right: -10px; border-left: 25px var(--reddish) solid; border-bottom: 25px var(--reddish) solid; border-right: 25px transparent solid; border-top: 25px transparent solid; position: absolute; top: 28px; }
+.triangle-house-side-face { position: absolute; background-color: var(--off-white); width: 170px; height: 280px; bottom: 0; right: 0; }
+.triangle-house-front-face { background-color: black; position: absolute; width: 80px; height: 280px; bottom: 0; right: 170px; }
+.triangle-house-front-face::before, .triangle-house-front-face::after { content: ''; position: absolute; }
+.triangle-house-front-face::before { border-left: 40px transparent solid; border-bottom: 40px black solid; border-right: 40px transparent solid; border-top: 0px transparent solid; position: absolute; top: -40px; }
+.triangle-house-front-face::after { background-color: var(--off-white); width: 30px; height: 30px; border-radius: 50%; left: 25%; }
+/* step house 1 */
+.step-house-1-1, .step-house-1-2, .step-house-1-3, .step-house-1-4, .step-house-1-5 { transform: translateY(350px); border-radius: 0 15% 0 0; }
+.step-house-1-1.animate, .step-house-1-2.animate, .step-house-1-3.animate, .step-house-1-4.animate, .step-house-1-5.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
+.step-house-1-2.animate::after { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.step-house-1-1, .step-house-1-2, .step-house-1-3, .step-house-1-4, .step-house-1-5 { background-color: var(--reddish); position: absolute; width: 42px; bottom: 0; }
+.step-house-1-1 { height: 270px; left: 0; }
+.step-house-1-2 { height: 230px; left: 40px; }
+.step-house-1-3 { height: 190px; left: 80px; }
+.step-house-1-4 { height: 150px; left: 120px; }
+.step-house-1-5 { height: 100px; left: 160px; }
+.step-house-1-2::after { content: ''; background-color: var(--off-white); width: 30px; height: 50px; border-radius: 50% 50% 5% 5%; position: absolute; top: 50px; left: -20px; }
+/* step house 2 */
+.step-house-2-back-face, .step-house-2-1, .step-house-2-2, .step-house-2-3, .step-house-2-4 { transform: translateY(350px); }
+.step-house-2-back-face.animate, .step-house-2-1.animate, .step-house-2-2.animate, .step-house-2-3.animate, .step-house-2-4.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
+.step-house-2-back-face.animate::before, .step-house-2-back-face.animate::after { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.step-house-2-back-face { background-color: var(--dark-blue); position: absolute; height: 290px; width: 120px; bottom: 0; left: 101px; border-radius: 3%; }
+.step-house-2-1, .step-house-2-2, .step-house-2-3, .step-house-2-4 { border-radius: 10% 0 0 0; }
+.step-house-2-1, .step-house-2-2, .step-house-2-3, .step-house-2-4 { background-color: var(--off-white); position: absolute; width: 32px; bottom: 0; }
+.step-house-2-1 { height: 110px; left: 100px; }
+.step-house-2-2 { height: 140px; left: 130px; }
+.step-house-2-3 { height: 170px; left: 160px; }
+.step-house-2-4 { height: 200px; left: 190px; }
+.step-house-2-back-face::before, .step-house-2-back-face::after { content: ''; background-color: var(--off-white); width: 25px; height: 25px; border-radius: 15% 15% 15% 15%; position: absolute; top: 35px; }
+.step-house-2-back-face::before { left: 20px; }
+.step-house-2-back-face::after { right: 20px; }
+/* fat house 2 */
+.fat-house-2-roof, .fat-house-2-roof-slope, .fat-house-2-body { transform: translateY(350px); }
+.fat-house-2-roof.animate, .fat-house-2-roof-slope.animate, .fat-house-2-body.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
+.fat-house-2-body.animate::after { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.fat-house-2-roof { background-color: var(--reddish); width: 57px; height: 50px; position: absolute; top: 120px; right: 0; }
+.fat-house-2-roof-slope { border-left: 25px transparent solid; border-bottom: 25px var(--reddish) solid; border-right: 25px var(--reddish) solid; border-top: 25px transparent solid;  position: absolute;  top: 120px;  right: 55px; }
+.fat-house-2-body { background-color: var(--off-white); position: absolute; width: 100px; height: 180px; right: 0; bottom: 0; }
+.fat-house-2-body::after { content: ''; position: absolute; height: 50px; width: 40px; border-radius: 40% 40% 5% 5%; background-color: black; top: 30px; right: 40px; }
+/* tower 3 */
+.tower-3-roof, .tower-3-body { transform: translateY(350px); }
+.tower-3-roof.animate, .tower-3-body.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
+.tower-3-body.animate::after { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.tower-3-roof { background-color: var(--reddish); width: 85px; height: 85px; border-radius: 50%; position: absolute; top: 60px; left: 0; }
+.tower-3-body { background-color: var(--off-white); position: absolute; width: 85px; height: 240px; left: 0; bottom: 0; }
+.tower-3-body::after { content: ''; position: absolute; height: 55px; width: 35px; background-color: black; border-radius: 50% 50% 10% 10%; top: 30px; right:25px; }
+/* bird */
+.bird-container.animate { animation:  bird-swoop 10s ease-in 0s infinite; }
+.bird.animate { animation: bird-flap 0.35s steps(1) 17; }
+.bird.animate.reset { animation: none; }
+.bird-container { position: absolute; top: 40px; right: -35px; }
+.bird { border-top: 15px transparent solid; border-right: 15px transparent solid; border-bottom: 15px black solid; border-left: 15px black solid; border-radius: 15%; }
