@@ -84,7 +84,12 @@ div { filter: blur(0.7px); }
 .blue-square { display: flex; background-color: var(--blue); height: 440px; width: 600px; position: relative; margin: 50px auto; }
 .pink-square { position: relative; background-color: var(--pink); width: 350px; height: 350px; margin: auto; overflow: hidden; }
 /* cloud */
-.cloud-1.animate, .cloud-2.animate, .cloud-3.animate { animation: cloud-animate 25s linear infinite; }
+.cloud-1.animate, .cloud-2.animate, .cloud-3.animate { 
+  -webkit-animation: cloud-animate 25s linear infinite;
+  -moz-animation: cloud-animate 25s linear infinite;
+  -o-animation: cloud-animate 25s linear infinite;
+  animation: cloud-animate 25s linear infinite; 
+}
 .cloud-1 { position: absolute; background-color: white; width: 100px; height: 60px; left: -130px; top:45px; }
 .cloud-2, .cloud-3 { background-color: white; position: absolute; width:60px; height: 60px; border-radius: 50%; top: 45px; }
 .cloud-2 { left: -160px; }
@@ -93,8 +98,18 @@ div { filter: blur(0.7px); }
 .cloud-1::before { top: -40px; }
 .cloud-1::after { top: -20px; left: 35px; }
 /* tower 1 */
-.tower-1-roof.animate, .tower-1-body.animate { animation: building-animate 10s linear 0s infinite normal; }
-.tower-1-body.animate::after, .tower-1-body.animate::before { animation: windows-animate 10s ease 0s infinite normal; }
+.tower-1-roof.animate, .tower-1-body.animate { 
+  -webkit-animation: building-animate 10s linear 0s infinite normal;
+  -moz-animation: building-animate 10s linear 0s infinite normal;
+  -o-animation: building-animate 10s linear 0s infinite normal;
+  animation: building-animate 10s linear 0s infinite normal; 
+}
+.tower-1-body.animate::after, .tower-1-body.animate::before { 
+  -webkit-animation: windows-animate 10s ease 0s infinite normal;
+  -moz-animation: windows-animate 10s ease 0s infinite normal;
+  -o-animation: windows-animate 10s ease 0s infinite normal;
+  animation: windows-animate 10s ease 0s infinite normal; 
+}
 .tower-1-roof { background-color: var(--dark-blue); width: 115px; height: 115px; border-radius: 50%; position: absolute; top: 70px; right: 0; }
 .tower-1-body { background-color: var(--off-white); position: absolute; width: 115px; height: 230px; right: 0; bottom: 0; }
 .tower-1-body::before, .tower-1-body::after { content: ''; position: absolute; height: 35px; width: 15px; background-color: black; border-radius: 10%; top: 30px; }
@@ -102,13 +117,28 @@ div { filter: blur(0.7px); }
 .tower-1-body::after { right: 30px; }
 /* round house 1 */
 .round-house-1-roof, .round-house-1-body { transform: translateY(350px); }
-.round-house-1-roof.animate, .round-house-1-body.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
+.round-house-1-roof.animate, .round-house-1-body.animate { 
+  -webkit-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -moz-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -o-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  animation: offscreen-building-animate 10s linear 0s infinite normal; 
+}
 .round-house-1-roof { background-color: black; width: 80px; height: 150px; ; position: absolute; top: 30px; right: 0; }
 .round-house-1-body { background-color: var(--reddish); position: absolute; width: 155px; height: 320px; right: 0; bottom: 0; border-radius: 50% 50% 0 0; }
 /* tower 2 */
 .tower-2-roof, .tower-2-body, .tower-2-cross-vt, .tower-2-cross-hz { transform: translateY(350px); }
-.tower-2-roof.animate, .tower-2-body.animate, .tower-2-cross-vt.animate, .tower-2-cross-hz.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
-.tower-2-body.animate::after, .tower-2-body.animate::before { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.tower-2-roof.animate, .tower-2-body.animate, .tower-2-cross-vt.animate, .tower-2-cross-hz.animate { 
+  -webkit-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -moz-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -o-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  animation: offscreen-building-animate 10s linear 0s infinite normal; 
+}
+.tower-2-body.animate::after, .tower-2-body.animate::before { 
+  -webkit-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -moz-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -o-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  animation: offscreen-windows-animate 10s ease 0s infinite normal; 
+}
 .tower-2-roof { background-color: var(--dark-blue); width: 150px; height: 100px; border-radius: 50%; position: absolute; top: 100px; right: 35px; }
 .tower-2-cross-vt, .tower-2-cross-hz { background-color: var(--off-white); position: absolute; }
 .tower-2-cross-vt { height: 45px; width: 10px; top: 55px; right: 105px;}
@@ -118,8 +148,18 @@ div { filter: blur(0.7px); }
 .tower-2-body::before { left: 40px; }
 .tower-2-body::after { right: 50px; }
 /* fat house 1 */
-.fat-house-1-roof.animate, .fat-house-1-roof-slope.animate, .fat-house-1-body.animate { animation: building-animate 10s linear 0s infinite normal; }
-.fat-house-1-body.animate::after, .fat-house-1-body.animate::before { animation: windows-animate 10s ease 0s infinite normal; }
+.fat-house-1-roof.animate, .fat-house-1-roof-slope.animate, .fat-house-1-body.animate {
+  -webkit-animation: building-animate 10s linear 0s infinite normal;
+  -moz-animation: building-animate 10s linear 0s infinite normal;
+  -o-animation: building-animate 10s linear 0s infinite normal;
+  animation: building-animate 10s linear 0s infinite normal;  
+  }
+.fat-house-1-body.animate::after, .fat-house-1-body.animate::before { 
+  -webkit-animation: windows-animate 10s ease 0s infinite normal;
+  -moz-animation: windows-animate 10s ease 0s infinite normal;
+  -o-animation: windows-animate 10s ease 0s infinite normal;
+  animation: windows-animate 10s ease 0s infinite normal;  
+}
 .fat-house-1-roof { background-color: var(--dark-blue); width: 107px; height: 50px; position: absolute; top: 70px; left: 0; }
 .fat-house-1-roof-slope { border-left: 25px var(--dark-blue) solid; border-bottom: 25px var(--dark-blue) solid; border-right: 25px transparent solid; border-top: 25px transparent solid;  position: absolute;  top: 70px;  left: 105px; }
 .fat-house-1-body { background-color: var(--off-white); position: absolute; width: 155px; height: 230px; left: 0; bottom: 0; }
@@ -128,8 +168,18 @@ div { filter: blur(0.7px); }
 .fat-house-1-body::after { right: 55px; }
 /* triangle house */
 .triangle-house-roof, .triangle-house-roof-slope, .triangle-house-side-face, .triangle-house-front-face { transform: translateY(350px); } 
-.triangle-house-roof.animate, .triangle-house-roof-slope.animate, .triangle-house-front-face.animate, .triangle-house-side-face.animate, .triangle-house-body.animate::before { animation: offscreen-building-animate 10s linear 0s infinite normal; }
-.triangle-house-front-face.animate::after { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.triangle-house-roof.animate, .triangle-house-roof-slope.animate, .triangle-house-front-face.animate, .triangle-house-side-face.animate, .triangle-house-body.animate::before { 
+  -webkit-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -moz-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -o-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  animation: offscreen-building-animate 10s linear 0s infinite normal; 
+}
+.triangle-house-front-face.animate::after { 
+  -webkit-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -moz-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -o-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  animation: offscreen-windows-animate 10s ease 0s infinite normal; 
+}
 .triangle-house-roof { background-color: var(--reddish); width: 170px; height: 50px; position: absolute; top: 30px; right: 39px; }
 .triangle-house-roof-slope { right: -10px; border-left: 25px var(--reddish) solid; border-bottom: 25px var(--reddish) solid; border-right: 25px transparent solid; border-top: 25px transparent solid; position: absolute; top: 28px; }
 .triangle-house-side-face { position: absolute; background-color: var(--off-white); width: 170px; height: 280px; bottom: 0; right: 0; }
@@ -139,8 +189,18 @@ div { filter: blur(0.7px); }
 .triangle-house-front-face::after { background-color: var(--off-white); width: 30px; height: 30px; border-radius: 50%; left: 25%; }
 /* step house 1 */
 .step-house-1-1, .step-house-1-2, .step-house-1-3, .step-house-1-4, .step-house-1-5 { transform: translateY(350px); border-radius: 0 15% 0 0; }
-.step-house-1-1.animate, .step-house-1-2.animate, .step-house-1-3.animate, .step-house-1-4.animate, .step-house-1-5.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
-.step-house-1-2.animate::after { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.step-house-1-1.animate, .step-house-1-2.animate, .step-house-1-3.animate, .step-house-1-4.animate, .step-house-1-5.animate { 
+  -webkit-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -moz-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -o-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  animation: offscreen-building-animate 10s linear 0s infinite normal;  
+}
+.step-house-1-2.animate::after { 
+  -webkit-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -moz-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -o-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  animation: offscreen-windows-animate 10s ease 0s infinite normal; 
+}
 .step-house-1-1, .step-house-1-2, .step-house-1-3, .step-house-1-4, .step-house-1-5 { background-color: var(--reddish); position: absolute; width: 42px; bottom: 0; }
 .step-house-1-1 { height: 270px; left: 0; }
 .step-house-1-2 { height: 230px; left: 40px; }
@@ -150,8 +210,18 @@ div { filter: blur(0.7px); }
 .step-house-1-2::after { content: ''; background-color: var(--off-white); width: 30px; height: 50px; border-radius: 50% 50% 5% 5%; position: absolute; top: 50px; left: -20px; }
 /* step house 2 */
 .step-house-2-back-face, .step-house-2-1, .step-house-2-2, .step-house-2-3, .step-house-2-4 { transform: translateY(350px); }
-.step-house-2-back-face.animate, .step-house-2-1.animate, .step-house-2-2.animate, .step-house-2-3.animate, .step-house-2-4.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
-.step-house-2-back-face.animate::before, .step-house-2-back-face.animate::after { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.step-house-2-back-face.animate, .step-house-2-1.animate, .step-house-2-2.animate, .step-house-2-3.animate, .step-house-2-4.animate { 
+  -webkit-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -moz-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -o-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  animation: offscreen-building-animate 10s linear 0s infinite normal;  
+}
+.step-house-2-back-face.animate::before, .step-house-2-back-face.animate::after { 
+  -webkit-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -moz-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -o-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  animation: offscreen-windows-animate 10s ease 0s infinite normal; 
+}
 .step-house-2-back-face { background-color: var(--dark-blue); position: absolute; height: 290px; width: 120px; bottom: 0; left: 101px; border-radius: 3%; }
 .step-house-2-1, .step-house-2-2, .step-house-2-3, .step-house-2-4 { border-radius: 10% 0 0 0; }
 .step-house-2-1, .step-house-2-2, .step-house-2-3, .step-house-2-4 { background-color: var(--off-white); position: absolute; width: 32px; bottom: 0; }
@@ -164,22 +234,52 @@ div { filter: blur(0.7px); }
 .step-house-2-back-face::after { right: 20px; }
 /* fat house 2 */
 .fat-house-2-roof, .fat-house-2-roof-slope, .fat-house-2-body { transform: translateY(350px); }
-.fat-house-2-roof.animate, .fat-house-2-roof-slope.animate, .fat-house-2-body.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
-.fat-house-2-body.animate::after { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.fat-house-2-roof.animate, .fat-house-2-roof-slope.animate, .fat-house-2-body.animate { 
+  -webkit-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -moz-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -o-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  animation: offscreen-building-animate 10s linear 0s infinite normal; 
+}
+.fat-house-2-body.animate::after { 
+  -webkit-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -moz-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -o-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  animation: offscreen-windows-animate 10s ease 0s infinite normal; 
+}
 .fat-house-2-roof { background-color: var(--reddish); width: 57px; height: 50px; position: absolute; top: 120px; right: 0; }
 .fat-house-2-roof-slope { border-left: 25px transparent solid; border-bottom: 25px var(--reddish) solid; border-right: 25px var(--reddish) solid; border-top: 25px transparent solid;  position: absolute;  top: 120px;  right: 55px; }
 .fat-house-2-body { background-color: var(--off-white); position: absolute; width: 100px; height: 180px; right: 0; bottom: 0; }
 .fat-house-2-body::after { content: ''; position: absolute; height: 50px; width: 40px; border-radius: 40% 40% 5% 5%; background-color: black; top: 30px; right: 40px; }
 /* tower 3 */
 .tower-3-roof, .tower-3-body { transform: translateY(350px); }
-.tower-3-roof.animate, .tower-3-body.animate { animation: offscreen-building-animate 10s linear 0s infinite normal; }
-.tower-3-body.animate::after { animation: offscreen-windows-animate 10s ease 0s infinite normal; }
+.tower-3-roof.animate, .tower-3-body.animate { 
+  -webkit-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -moz-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  -o-animation: offscreen-building-animate 10s linear 0s infinite normal; 
+  animation: offscreen-building-animate 10s linear 0s infinite normal;  
+}
+.tower-3-body.animate::after { 
+  -webkit-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -moz-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  -o-animation: offscreen-windows-animate 10s ease 0s infinite normal;
+  animation: offscreen-windows-animate 10s ease 0s infinite normal; 
+}
 .tower-3-roof { background-color: var(--reddish); width: 85px; height: 85px; border-radius: 50%; position: absolute; top: 60px; left: 0; }
 .tower-3-body { background-color: var(--off-white); position: absolute; width: 85px; height: 240px; left: 0; bottom: 0; }
 .tower-3-body::after { content: ''; position: absolute; height: 55px; width: 35px; background-color: black; border-radius: 50% 50% 10% 10%; top: 30px; right:25px; }
 /* bird */
-.bird-container.animate { animation:  bird-swoop 10s ease-in 0s infinite; }
-.bird.animate { animation: bird-flap 0.35s steps(1) 17; }
+.bird-container.animate { 
+  -webkit-animation: bird-swoop 10s ease-in 0s infinite;
+  -moz-animation: bird-swoop 10s ease-in 0s infinite;
+  -o-animation: bird-swoop 10s ease-in 0s infinite;
+  animation: bird-swoop 10s ease-in 0s infinite; 
+}
+.bird.animate { 
+  -webkit-animation: bird-flap 0.35s steps(1) 17; 
+  -moz-animation: bird-flap 0.35s steps(1) 17; 
+  -o-animation: bird-flap 0.35s steps(1) 17; 
+  animation: bird-flap 0.35s steps(1) 17; 
+}
 .bird.animate.reset { animation: none; }
 .bird-container { position: absolute; top: 40px; right: -35px; }
 .bird { border-top: 15px transparent solid; border-right: 15px transparent solid; border-bottom: 15px black solid; border-left: 15px black solid; border-radius: 15%; }
